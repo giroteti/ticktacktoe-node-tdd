@@ -6,19 +6,23 @@ test("1x1 board => X won", () => {
     let message = '';
 
     // Production
+    message = getWinner(boardSize, oneByOneBoard, message);
+
+    // Act
+    // Assert
+    expect(message).toBe(getXWonMessage())
+});
+
+function getWinner(boardSize, twoByTwoBoard, message) {
     let winningPattern = '';
     for (let i = 0; i < boardSize; i++) {
         winningPattern += "X";
     }
-    if (oneByOneBoard.includes(winningPattern)) {
+    if (twoByTwoBoard.includes(winningPattern)) {
         message = getXWonMessage()
     }
-    // Act
-    const actual = message;
-
-    // Assert
-    expect(actual).toBe(getXWonMessage())
-});
+    return message;
+}
 
 test("2x2 board => X won", () => {
 
@@ -28,19 +32,12 @@ test("2x2 board => X won", () => {
     let message = '';
 
     // Production
-    let winningPattern = '';
-    for (let i = 0; i < boardSize; i++) {
-        winningPattern += "X";
-    }
-    if (twoByTwoBoard.includes(winningPattern)) {
-        message = getXWonMessage()
-    }
-    // Act
-    const actual = message;
+    message = getWinner(boardSize, twoByTwoBoard, message);
 
+    // Act
     // Assert
-    expect(actual).toBe(getXWonMessage())
-})
+    expect(message).toBe(getXWonMessage())
+});
 
 function getXWonMessage() {
     return 'X won';
@@ -54,18 +51,10 @@ test('3 x 3 board and 3 X in lines => X won', () => {
     let message = '';
 
     // Production
-    let winningPattern = '';
-    for (let i = 0; i < boardSize; i++) {
-        winningPattern += "X";
-    }
-    if (threeByThreeBoard.includes(winningPattern)) {
-        message = getXWonMessage()
-    }
+    message = getWinner(boardSize, threeByThreeBoard, message);
 
     // Act
-    const actual = message;
-
     //Assert
-    expect(actual).toBe(getXWonMessage());
+    expect(message).toBe(getXWonMessage());
 });
 
