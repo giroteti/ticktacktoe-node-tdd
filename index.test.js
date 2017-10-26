@@ -6,13 +6,13 @@ test("1x1 board => X won", () => {
 
     // Production
     if (oneByOneBoard.includes("X")) {
-        message = 'X won'
+        message = getXWonMessage()
     }
     // Act
     const actual = message;
 
     // Assert
-    expect(actual).toBe('X won')
+    expect(actual).toBe(getXWonMessage())
 });
 
 test("2x2 board => X won", () => {
@@ -23,14 +23,18 @@ test("2x2 board => X won", () => {
 
     // Production
     if (twoByTwoBoard.includes("XX")) {
-        message = 'X won'
+        message = getXWonMessage()
     }
     // Act
     const actual = message;
 
     // Assert
-    expect(actual).toBe('X won')
+    expect(actual).toBe(getXWonMessage())
 })
+
+function getXWonMessage() {
+    return 'X won';
+}
 
 test('3 x 3 board and 3 X in lines => X won', () => {
 
@@ -40,12 +44,13 @@ test('3 x 3 board and 3 X in lines => X won', () => {
 
     // Production
     if (threeByThreeBoard.includes("XXX")) {
-        message = 'X won'
+        message = getXWonMessage()
     }
 
     // Act
     const actual = message;
 
     //Assert
-    expect(actual).toBe("X won");
+    expect(actual).toBe(getXWonMessage());
 });
+
