@@ -1,15 +1,33 @@
 test("1x1 board => X won", () => {
 
     // Arrange
-    const oneToOneBoard = "X";
+    const oneByOneBoard = "X";
+    let message = '';
 
     // Production
-    let message = '';
-    if (oneToOneBoard.includes("X")) {
+    if (oneByOneBoard.includes("X")) {
         message = 'X won'
     }
     // Act
+    const actual = message;
 
     // Assert
-    expect(message).toBe('X won')
+    expect(actual).toBe('X won')
 });
+
+test("2x3 board => X won", () => {
+
+    // Arrange
+    const twoByTwoBoard = "XX|0 ";
+    let message = '';
+
+    // Production
+    if (twoByTwoBoard.includes("XX")) {
+        message = 'X won';
+    }
+    // Act
+    const actual = message;
+
+    // Assert
+    expect(actual).toBe('X won')
+})
