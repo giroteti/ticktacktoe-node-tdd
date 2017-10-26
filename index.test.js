@@ -15,7 +15,7 @@ test("1x1 board => X won", () => {
     expect(actual).toBe('X won')
 });
 
-test("2x3 board => X won", () => {
+test("2x2 board => X won", () => {
 
     // Arrange
     const twoByTwoBoard = "XX|0 ";
@@ -23,7 +23,7 @@ test("2x3 board => X won", () => {
 
     // Production
     if (twoByTwoBoard.includes("XX")) {
-        message = 'X won';
+        message = 'X won'
     }
     // Act
     const actual = message;
@@ -31,3 +31,21 @@ test("2x3 board => X won", () => {
     // Assert
     expect(actual).toBe('X won')
 })
+
+test('3 x 3 board and 3 X in lines => X won', () => {
+
+    // Arrange
+    const threeByThreeBoard = 'XXX|00 |   ';
+    let message = '';
+
+    // Production
+    if (threeByThreeBoard.includes("XXX")) {
+        message = 'X won'
+    }
+
+    // Act
+    const actual = message;
+
+    //Assert
+    expect(actual).toBe("X won");
+});
